@@ -12,4 +12,5 @@ __pycache__/
 .vscode/
 
 # Other material from the Nov 2026 LINXS workshop that should not be included in git
-workshop_material/
+cil_material/
+gvxr_material/

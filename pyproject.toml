@@ -46,6 +46,7 @@ progressbar2 = ">=4.7.0,<5"
 setuptools = "<81"
 medpy = ">=0.5.2,<0.6"
 matplotlib = ">=3.11.2,<4"
+jupyterlab = ">=4.6.6,<5"
 
 [tool.pixi.activation.env]
 # Fix for EGL on DTU HPC (a100sh)

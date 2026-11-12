@@ -14,4 +14,11 @@ This collection of notebooks can be used to achieve a full in-sillica XCT experi
 
 An appropriate environment for use on Linux can be (reproducibly!) made using `pixi` and the `pyproject.toml` + `pixi.lock` files in this directory. 
 
+You can install `pixi` by running:
+```sh
+curl -fsSL https://pixi.sh/install.sh | sh
+```
+
+Then you can install the environment with `pixi install` and then launch jupyter with `pixi run jupyter lab`
+
 NOTE: This is not fully finished or polished to the extent that one (such as myself) would like. Use without caution, but with an abundance of patience.

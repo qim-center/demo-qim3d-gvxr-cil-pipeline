@@ -12,6 +12,7 @@ This collection of notebooks can be used to achieve a full in-sillica XCT experi
     - Reconstruct using iterative method (FISTA) and TV regularisation
 4. `qim3d` (TODO): Segment the data and compare against generated ground truth
 
+## Getting an environment
 An appropriate environment for use on Linux can be (reproducibly!) made using `pixi` and the `pyproject.toml` + `pixi.lock` files in this directory. 
 
 You can install `pixi` by running:
@@ -22,3 +23,7 @@ curl -fsSL https://pixi.sh/install.sh | sh
 Then you can install the environment with `pixi install` and then launch jupyter with `pixi run jupyter lab`
 
 NOTE: This is not fully finished or polished to the extent that one (such as myself) would like. Use without caution, but with an abundance of patience.
+
+## Other
+
+You may be interested in joining the Qim Community on Discord: https://discord.gg/R7Yp7QNJHy — Come say hello!

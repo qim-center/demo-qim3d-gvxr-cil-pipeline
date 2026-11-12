@@ -1,0 +1,15 @@
+# Project
+*.log
+data/
+
+# Tools
+.pixi/
+
+# Python
+__pycache__/
+
+# Editors
+.vscode/
+
+# Other material from the Nov 2026 LINXS workshop that should not be included in git
+workshop_material/

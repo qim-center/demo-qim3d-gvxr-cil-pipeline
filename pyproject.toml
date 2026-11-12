@@ -1,0 +1,55 @@
+[project]
+authors = [{ name = "Jeppe Klitgaard", email = "jepkl@dtu.dk" }]
+dependencies = [
+    "qim3d>=1.6.1,<2",
+    "gvxr>=2.1.1,<3",
+    "spekpy>=2.5.4,<3",
+    "xpecgen>=1.3.1,<2",
+    "viewscad>=0.2.0,<0.3",
+    "opengate>=10.1.2,<11",
+    "trimesh>=5.2.0,<6",
+]
+license = "MIT"
+name = "this"
+requires-python = "==3.13.*"
+version = "0.1.0"
+
+[build-system]
+build-backend = "hatchling.build"
+requires = ["hatchling"]
+
+[tool.pixi.workspace]
+channels = ["conda-forge", "ccpi", "astra-toolbox", "nvidia"]
+channel-priority = "flexible"
+
+platforms = [
+    # gVXR ships with relatively recent manylinux, so we require glibc >= 2.34
+    { platform = "linux-64", glibc = "2.34" },
+]
+
+[tool.pixi.dependencies]
+cil = { version = ">=26.0.0,<27", channel = "ccpi" }
+tigre = { version = ">=3.1.3,<4", channel = "ccpi" }
+ccpi-regulariser = { version = ">=24.0.1", channel = "ccpi" }
+
+# Can't seem to get astra-toolbox from astra-toolbox channel to work with CUDA,
+# so we just use the conda-forge packaged one.
+astra-toolbox = { version = ">=2.5.0,<3", channel = "conda-forge" }
+
+# This is a stop-gap needed to prevent dependency resolution sometimes failing due to resolution ordering
+# We don't actually depend on this.
+python-dateutil = ">=2.9.0,<3"
+
+ipykernel = "<7"
+simpleitk = ">=2.5.7,<3"
+progressbar2 = ">=4.7.0,<5"
+setuptools = "<81"
+medpy = ">=0.5.2,<0.6"
+matplotlib = ">=3.11.2,<4"
+
+[tool.pixi.activation.env]
+# Fix for EGL on DTU HPC (a100sh)
+__EGL_VENDOR_LIBRARY_FILENAMES = "/usr/share/glvnd/egl_vendor.d/10_nvidia.json"
+
+[tool.pixi.tasks]
+"test_setup.py" = { cmd = "python test_setup.py", description = "Check that gVXR renders headlessly on the GPU via EGL" }
